@@ -7,6 +7,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import Modal from '@material-ui/core/Modal';
+
+// import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
+
 import '../../styles/mystyles.css';
 
 class MainPage extends Component {
@@ -35,8 +42,8 @@ class MainPage extends Component {
     fetch('/api/house-create-test', { method: 'POST' })
       .then(res => res.json())
       .then(json => {
-        // let data = this.state.counters;
-        // data.push(json);
+        let data = this.state.houses;
+        data.push(json);
         console.log("House Returned!",json);
         this.setState({
           houses: data
@@ -56,14 +63,17 @@ class MainPage extends Component {
     });
      // Code Goes HEre:
     return (
-      <div className="container">
-      <h1>Calgary</h1>
+      <div className="container-list">
+      <div className="header-list"><h1>Calgary</h1> <Fab color="secondary" aria-label="Add" >
+         <Icon>add</Icon>
+      </Fab></div>
       <Paper className={styles.root}>
       <Table className={styles.table}>
         <TableHead>
           <TableRow>
             <TableCell>Community</TableCell>
-            <TableCell align="right">Address</TableCell>
+            <TableCell >Address</TableCell>
+            <TableCell > </TableCell>
 
           </TableRow>
         </TableHead>
@@ -73,7 +83,8 @@ class MainPage extends Component {
               <TableCell component="th" scope="row">
                 {row.community}
               </TableCell>
-              <TableCell align="right">{row.address}</TableCell>
+              <TableCell >{row.address}</TableCell>
+              <TableCell align="right"> <Button variant="outlined" color="secondary" className="more-button">More</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
