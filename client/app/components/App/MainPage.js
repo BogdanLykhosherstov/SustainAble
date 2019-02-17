@@ -162,7 +162,7 @@ class MainPage extends Component {
      >
          <Paper className="modal-container">
          <form noValidate autoComplete="off" className="modal-text-container">
-            <h2>Add a new house</h2>
+            <h2>New House</h2>
              <TextField
 
                className="text-field-modal"

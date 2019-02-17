@@ -73,39 +73,39 @@ class Map extends Component {
                     +parseInt(this.state.houses[0].sq_footage.garage.slice(0,-2))} sq. ft. <br>
                 Ext. Temp : ${this.state.houses[0].history.external_temp.slice(0,-1)} C<br>
                 Int. Temp: ${this.state.houses[0].history.internal_temp.slice(0,-1)} C<br>
-                Heat Loss: ${this.state.houses[0].history.heat_lost} ` );
+                Runtime Percentage: ${this.state.houses[0].history.runtime_percentage} ` );
 
 
   // create the popup
   var popup1 = new mapboxgl.Popup({ offset: 25 })
-    .setHTML(`Address : ${this.state.houses[3].address}<br>
-                Total Sq. Footage : ${parseInt(this.state.houses[3].sq_footage.above_grade.slice(0,-2))
-                    +parseInt(this.state.houses[3].sq_footage.below_grade.slice(0,-2))
-                    +parseInt(this.state.houses[3].sq_footage.garage.slice(0,-2))} sq. ft. <br>
-                Ext. Temp : ${this.state.houses[3].history.external_temp.slice(0,-1)} C<br>
-                Int. Temp: ${this.state.houses[3].history.internal_temp.slice(0,-1)} C<br>
-                Heat Loss: ${this.state.houses[3].history.heat_lost} ` );
+    .setHTML(`Address : ${this.state.houses[1].address}<br>
+                Total Sq. Footage : ${parseInt(this.state.houses[1].sq_footage.above_grade.slice(0,-2))
+                    +parseInt(this.state.houses[1].sq_footage.below_grade.slice(0,-2))
+                    +parseInt(this.state.houses[1].sq_footage.garage.slice(0,-2))} sq. ft. <br>
+                Ext. Temp : ${this.state.houses[1].history.external_temp.slice(0,-1)} C<br>
+                Int. Temp: ${this.state.houses[1].history.internal_temp.slice(0,-1)} C<br>
+                Runtime Percentage: ${this.state.houses[1].history.runtime_percentage} ` );
 
   // create the popup
   var popup2 = new mapboxgl.Popup({ offset: 25 })
     .setHTML(`Address : ${this.state.houses[2].address}<br>
-                Total Sq. Footage : ${parseInt(this.state.houses[3].sq_footage.above_grade.slice(0,-2))
+                Total Sq. Footage : ${parseInt(this.state.houses[2].sq_footage.above_grade.slice(0,-2))
                     +parseInt(this.state.houses[2].sq_footage.below_grade.slice(0,-2))
                     +parseInt(this.state.houses[2].sq_footage.garage.slice(0,-2))} sq. ft. <br>
                 Ext. Temp : ${this.state.houses[2].history.external_temp.slice(0,-1)} C<br>
                 Int. Temp: ${this.state.houses[2].history.internal_temp.slice(0,-1)} C<br>
-                Heat Loss: ${this.state.houses[2].history.heat_lost} ` );
+                Runtime Percentage: ${this.state.houses[2].history.runtime_percentage} ` );
 
 
     // create the popup
       var popup3 = new mapboxgl.Popup({ offset: 25 })
-      .setHTML(`Address : ${this.state.houses[4].address}<br>
-                  Total Sq. Footage : ${parseInt(this.state.houses[4].sq_footage.above_grade.slice(0,-2))
-                      +parseInt(this.state.houses[4].sq_footage.below_grade.slice(0,-2))
-                      +parseInt(this.state.houses[4].sq_footage.garage.slice(0,-2))} sq. ft. <br>
-                  Ext. Temp : ${this.state.houses[4].history.external_temp.slice(0,-1)} C<br>
-                  Int. Temp: ${this.state.houses[4].history.internal_temp.slice(0,-1)} C<br>
-                  Heat Loss: ${this.state.houses[4].history.heat_lost} ` );
+      .setHTML(`Address : ${this.state.houses[3].address}<br>
+                  Total Sq. Footage : ${parseInt(this.state.houses[3].sq_footage.above_grade.slice(0,-2))
+                      +parseInt(this.state.houses[3].sq_footage.below_grade.slice(0,-2))
+                      +parseInt(this.state.houses[3].sq_footage.garage.slice(0,-2))} sq. ft. <br>
+                  Ext. Temp : ${this.state.houses[3].history.external_temp.slice(0,-1)} C<br>
+                  Int. Temp: ${this.state.houses[3].history.internal_temp.slice(0,-1)} C<br>
+                  Runtime Percentage: ${this.state.houses[3].history.runtime_percentage} ` );
 
 
 
