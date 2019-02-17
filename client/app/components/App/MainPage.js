@@ -120,7 +120,7 @@ class MainPage extends Component {
     return (
       <div className="container-list">
 
-      <div className="header-list"><div><h1>Calgary</h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
+      <div className="header-list"><div><h1>Calgary <span style={{color:'#f50057'}}>Houses1</span></h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
          <Icon>add</Icon>
          </Fab>
       </div>
@@ -147,7 +147,7 @@ class MainPage extends Component {
                 {row.community}
               </TableCell>
               <TableCell >{row.address}</TableCell>
-              <TableCell align="right"> <Button variant="outlined" color="secondary" className="more-button">More</Button></TableCell>
+            <TableCell align="right">  <Button variant="outlined" color="secondary" className="more-button">More</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

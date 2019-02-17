@@ -20,10 +20,7 @@ const theme = createMuiTheme({
 const App = ({ children }) => (
   <>
   <MuiThemeProvider theme={theme}>
-    <main>
         {children}
-
-    </main>
      </MuiThemeProvider>
 
   </>

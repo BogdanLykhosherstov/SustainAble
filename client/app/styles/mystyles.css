@@ -9,8 +9,9 @@
 }
 h1{
     text-align: center;
+    font-weight:500;
     font-family: 'Roboto';
-    font-size: 50px;
+    font-size: 42px;
 }
 .header-list{
     display:flex;
@@ -22,7 +23,7 @@ h1{
 .header-list div{
     display:flex;
     align-items: center;
-    
+
 }
 .fab-button{
     margin-left:20px!important;
@@ -60,4 +61,49 @@ h2{
     display:flex;
     margin-top: 5%!important;
     align-self: center;
+}
+/* Dans Code Below */
+.centered
+{
+ margin: 15% auto;
+ /*border: 2px solid black;*/
+ border-radius: 10px;
+ width: 60%;
+ min-width: 700px;
+ /*align-self: center;*/
+ text-align: center;
+}
+
+.title
+{
+ font-weight: bold;
+ margin: 0px 0px -20px 0px;
+ font-size: 5em;
+}
+
+.subtitle
+{
+ color:grey;
+ font-size: 2em;
+}
+
+.startButton
+{
+ margin: 20px;
+ border-radius: 30px;
+ color: black;
+}
+
+.button-main{
+ padding:20px 50px!important;
+ border-radius: 50px!important;
+
+
+}
+.button-main span{
+ font-size: 20px;
+}
+body{
+    background-color: white;
+    font-family: 'Roboto',sans-serif;
 }

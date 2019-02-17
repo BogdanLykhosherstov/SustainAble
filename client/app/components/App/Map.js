@@ -152,10 +152,10 @@ class Map extends Component {
     return (
       <div className="container-list">
 
-      <div className="header-list"><div><h1>Calgary Map</h1>
+      <div className="header-list"><div><h1>Calgary <span style={{color:'#f50057'}}>Map</span></h1>
       </div>
         <div>
-            <Link to="/" style={{textDecoration:'none'}}><Button color='secondary'>Table</Button></Link>
+            <Link to="/main" style={{textDecoration:'none'}}><Button color='secondary'>Table</Button></Link>
             <Button color='secondary'>Analytics</Button>
 
         </div>
