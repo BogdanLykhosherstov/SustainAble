@@ -11,7 +11,8 @@ const HouseSchema = new mongoose.Schema({
   history:{
       external_temp:String,
       internal_temp:String,
-      heat_lost:String
+      heat_lost:String,
+      
   }
 
 });
