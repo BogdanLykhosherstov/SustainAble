@@ -15,9 +15,14 @@ h1{
 .header-list{
     display:flex;
     flex-direction: row;
-    justify-content:flex-start;
-    align-items: center;
+    justify-content:space-between;
+    /* align-items: center; */
 
+}
+.header-list div{
+    display:flex;
+    align-items: center;
+    
 }
 .fab-button{
     margin-left:20px!important;

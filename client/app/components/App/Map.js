@@ -19,7 +19,7 @@ import Icon from '@material-ui/core/Icon';
 
 import '../../styles/mystyles.css';
 
-class MainPage extends Component {
+class Map extends Component {
   constructor(props) {
     super(props);
 
@@ -120,12 +120,12 @@ class MainPage extends Component {
     return (
       <div className="container-list">
 
-      <div className="header-list"><div><h1>Calgary</h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
+      <div className="header-list"><div><h1>Calgary Map</h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
          <Icon>add</Icon>
          </Fab>
       </div>
         <div>
-            <Link to="/map" style={{textDecoration:'none'}}><Button color='secondary'>Map</Button></Link>
+            <Link to="/" style={{textDecoration:'none'}}><Button color='secondary'>Table</Button></Link>
             <Button color='secondary'>Analytics</Button>
 
         </div>
@@ -223,4 +223,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+export default Map;
