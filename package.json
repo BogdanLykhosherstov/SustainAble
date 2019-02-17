@@ -47,6 +47,7 @@
   "devDependencies": {
     "@material-ui/core": "^3.9.2",
     "css-loader": "^0.28.11",
+    "file-loader": "^3.0.1",
     "query-string": "^6.2.0",
     "style-loader": "^0.20.3"
   }

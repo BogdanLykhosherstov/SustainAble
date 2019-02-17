@@ -125,7 +125,7 @@ class Analytics extends Component {
           </div>
 
             <div>
-                <div id="barchart_material" style={{marginTop:'50px',width: '100%', height:'500px', marginBottom:'50px'}}></div>
+                <div id="barchart_material" style={{marginTop:'50px',width: '90%', height:'500px', marginBottom:'50px'}}></div>
 
                 <div id="linechart_material" style={{width: '100%', height:'500px'}}></div>
             </div>
