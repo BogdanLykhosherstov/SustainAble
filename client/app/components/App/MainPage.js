@@ -131,7 +131,7 @@ class MainPage extends Component {
       </div>
         <div>
             <Link to="/map" style={{textDecoration:'none'}}><Button color='secondary'>Map</Button></Link>
-            <Button color='secondary'>Analytics</Button>
+            <Link to="/analytics" style={{textDecoration:'none'}}><Button color='secondary'>Analytics</Button></Link>
         </div>
       </div>
       <Paper className={styles.root}>
@@ -151,7 +151,7 @@ class MainPage extends Component {
                 {row.community}
               </TableCell>
               <TableCell >{row.address}</TableCell>
-            <TableCell align="right"> <Link to={`/main/:id=${row._id}`}> <Button variant="outlined" color="secondary" className="more-button">More</Button></Link></TableCell>
+            <TableCell align="right"> <Link to={`/main/:id=${row._id}`} style={{textDecoration:'none'}}> <Button variant="outlined" color="secondary" className="more-button" >More</Button></Link></TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -160,7 +160,7 @@ class More extends Component {
       <div className="header-list"><div><h1>Calgary <span style={{color:'#f50057'}}>More Info</span></h1>
       </div>
         <div>
-            <Link to="/main" style={{textDecoration:'none'}}><Button color='secondary'>Back</Button></Link>
+            <Link to="/main" style={{textDecoration:'none'}}><Button color='secondary'>Table</Button></Link>
             <Link to="/map" style={{textDecoration:'none'}}><Button color='secondary'>Map</Button></Link>
             <Button color='secondary'>Analytics</Button>
         </div>

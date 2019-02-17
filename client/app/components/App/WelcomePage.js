@@ -11,7 +11,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Fab from '@material-ui/core/Fab';
 import Modal from '@material-ui/core/Modal';
-
 // import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 
@@ -28,7 +27,7 @@ class WelcomePage extends Component {
    return (
      <div className="centered">
        <p className="title">Sustain-Able</p>
-       <p className="subtitle">Aggregated thermal information for a greener future</p>
+       <p className="subtitle">Energy Efficient Solutions for a Greener Future</p>
 
         <Link to="/main" style={{ textDecoration: 'none' }}>
           <Button variant="outlined" color="secondary" className="button-main" size="large">Get Started</Button>

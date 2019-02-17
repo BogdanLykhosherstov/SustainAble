@@ -156,7 +156,7 @@ class Map extends Component {
       </div>
         <div>
             <Link to="/main" style={{textDecoration:'none'}}><Button color='secondary'>Table</Button></Link>
-            <Button color='secondary'>Analytics</Button>
+            <Link to="/analytics" style={{textDecoration:'none'}}><Button color='secondary'>Analytics</Button></Link>
 
         </div>
       </div>
