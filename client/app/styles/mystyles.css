@@ -15,7 +15,44 @@ h1{
 .header-list{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:flex-start;
     align-items: center;
 
+}
+.fab-button{
+    margin-left:20px!important;
+    margin-top:10px!important;
+
+}
+.modal-container{
+    /* position:relative; */
+
+    padding: 4%;
+    margin: 5% auto;
+    width:30%;
+    /* height:200px; */
+    display:flex;
+    /* justify-content: center; */
+    align-self: center;
+}
+.modal-text-container{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.text-field-modal{
+    width:100%;
+}
+h2{
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-size: 30px;
+    text-align: center;
+}
+.modal-submit-button{
+    width:50%;
+    display:flex;
+    margin-top: 5%!important;
+    align-self: center;
 }

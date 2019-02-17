@@ -10,6 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import Modal from '@material-ui/core/Modal';
+import TextField from '@material-ui/core/TextField';
+
 
 // import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
@@ -21,7 +23,13 @@ class MainPage extends Component {
     super(props);
 
     this.state = {
-      houses: []
+      houses: [],
+      open:false,
+      community:"",
+      address:"",
+      above_grade:"",
+      below_grade:"",
+      garage:"",
     };
 
     this.newHouse = this.newHouse.bind(this);
@@ -38,8 +46,55 @@ class MainPage extends Component {
         });
       });
   }
+  componentDidUpdate(){
+      console.log("Comm",this.state.community);
+      console.log("Address",this.state.address);
+      console.log("Above",this.state.above_grade);
+      console.log("Below",this.state.below_grade);
+      console.log("Garage",this.state.garage);
+
+
+  }
+  handleChange (name,event) {
+
+      this.setState({
+        [name]: event.target.value,
+      });
+
+    };
+  handleOpen(){
+   this.setState({ open: true });
+ };
+
+ handleClose(){
+   this.setState({ open: false });
+ };
+ submit(){
+     this.newHouse();
+     this.handleClose();
+
+
+ }
+
   newHouse() {
-    fetch('/api/house-create-test', { method: 'POST' })
+    const data = {
+        community:this.state.community,
+        address:this.state.address,
+        above_grade:this.state.above_grade,
+        below_grade:this.state.below_grade,
+        garage:this.state.garage,
+        external_temp:"N/A",
+        internal_temp:"N/A",
+        heat_lost:"N/A"
+    }
+    fetch(`/api/house-create`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body:JSON.stringify(data),
+      })
       .then(res => res.json())
       .then(json => {
         let data = this.state.houses;
@@ -64,7 +119,8 @@ class MainPage extends Component {
      // Code Goes HEre:
     return (
       <div className="container-list">
-      <div className="header-list"><h1>Calgary</h1> <Fab color="secondary" aria-label="Add" >
+
+      <div className="header-list"><h1>Calgary</h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
          <Icon>add</Icon>
       </Fab></div>
       <Paper className={styles.root}>
@@ -91,7 +147,70 @@ class MainPage extends Component {
       </Table>
     </Paper>
 
-        // <button onClick={this.newHouse}>New House Test</button>
+    <Modal
+       aria-labelledby="simple-modal-title"
+       aria-describedby="simple-modal-description"
+       open={this.state.open}
+       onClose={this.handleClose.bind(this)}
+     >
+         <Paper className="modal-container">
+         <form noValidate autoComplete="off" className="modal-text-container">
+            <h2>Add a new house</h2>
+             <TextField
+
+               className="text-field-modal"
+               id="outlined-name"
+               label="Community"
+               // className={classes.textField}
+               // value={this.state.name}
+               onChange={this.handleChange.bind(this,'community')}
+               margin="normal"
+             />
+             <TextField
+
+               id="outlined-name"
+               className="text-field-modal"
+               label="Address"
+               // className={classes.textField}
+               // value={this.state.name}
+               onChange={this.handleChange.bind(this,'address')}
+               margin="normal"
+             />
+             <TextField
+
+               id="outlined-name"
+               className="text-field-modal"
+               label="Above-Grade"
+               // className={classes.textField}
+               // value={this.state.name}
+               onChange={this.handleChange.bind(this,'above_grade')}
+               margin="normal"
+             />
+             <TextField
+
+               id="outlined-name"
+               className="text-field-modal"
+               label="Below-Grade"
+               // className={classes.textField}
+               // value={this.state.name}
+               onChange={this.handleChange.bind(this,'below_grade')}
+               margin="normal"
+             />
+             <TextField
+
+               id="outlined-name"
+               className="text-field-modal"
+               label="Garage"
+               // className={classes.textField}
+               // value={this.state.name}
+               onChange={this.handleChange.bind(this,'garage')}
+               margin="normal"
+             />
+             <Button variant="contained" color="primary" className="modal-submit-button" onClick={this.submit.bind(this)}>Add</Button>
+        </form>
+         </Paper>
+     </Modal>
+
       </div>
     );
   }

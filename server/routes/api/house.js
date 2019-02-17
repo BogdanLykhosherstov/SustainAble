@@ -43,6 +43,31 @@ module.exports = (app) => {
       .then(() => res.json(house))
       .catch((err) => next(err));
   });
+  app.post('/api/house-create', function (req, res, next) {
+    const house = new House({
+        community: req.body.community,
+        address: req.body.address,
+        sq_footage:{
+            above_grade:req.body.above_grade,
+            below_grade:req.body.below_grade,
+            garage:req.body.garage
+        },
+        history:{
+            external_temp:req.body.external_temp,
+            internal_temp:req.body.internal_temp,
+            heat_lost:req.body.heat_lost
+        }
+
+    });
+    // console.log("Comm????",req.body.community);
+
+    house.save()
+      .then(() => res.json(house))
+      .catch((err) => next(err));
+
+
+
+  });
   // app.put('/api/houses/:id/increment', (req, res, next) => {
   //   House.findById(req.params.id)
   //     .exec()
