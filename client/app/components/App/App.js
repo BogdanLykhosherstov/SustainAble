@@ -21,8 +21,7 @@ const App = ({ children }) => (
   <>
   <MuiThemeProvider theme={theme}>
     <main>
-
-      <MainPage/>
+        {children}
 
     </main>
      </MuiThemeProvider>

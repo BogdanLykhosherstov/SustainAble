@@ -12,7 +12,7 @@ import App from './components/App/App';
 import NotFound from './components/App/NotFound';
 
 import Home from './components/Home/Home';
-
+import MainPage from './components/App/MainPage';
 import HelloWorld from './components/HelloWorld/HelloWorld';
 
 import './styles/mystyles.css';
@@ -21,7 +21,7 @@ render((
   <Router>
     <App>
       <Switch>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={MainPage}/>
         <Route path="/helloworld" component={HelloWorld}/>
         <Route component={NotFound}/>
       </Switch>
