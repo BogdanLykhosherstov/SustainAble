@@ -15,7 +15,11 @@ import Home from './components/Home/Home';
 
 import HelloWorld from './components/HelloWorld/HelloWorld';
 
-import './styles/mystyles.css';
+
+
+
+
+import './styles/styles.scss';
 
 render((
   <Router>
@@ -24,6 +28,8 @@ render((
         <Route exact path="/" component={Home}/>
         <Route path="/helloworld" component={HelloWorld}/>
         <Route component={NotFound}/>
+
+        
       </Switch>
     </App>
   </Router>
