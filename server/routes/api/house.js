@@ -55,7 +55,7 @@ module.exports = (app) => {
         history:{
             external_temp:req.body.external_temp,
             internal_temp:req.body.internal_temp,
-            heat_lost:req.body.heat_lost
+            runtime_percentage:req.body.runtime_percentage
         }
 
     });

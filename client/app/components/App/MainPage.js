@@ -36,7 +36,6 @@ class MainPage extends Component {
   }
 
 
-
   componentDidMount() {
     fetch('/api/house')
       .then(res => res.json())
@@ -85,7 +84,7 @@ class MainPage extends Component {
         garage:this.state.garage,
         external_temp:"N/A",
         internal_temp:"N/A",
-        heat_lost:"N/A"
+        runtime_percentage:"N/A"
     }
     fetch(`/api/house-create`, {
         method: 'POST',
