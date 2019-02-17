@@ -33,7 +33,6 @@ class Map extends Component {
       garage:"",
     };
 
-    this.newHouse = this.newHouse.bind(this);
   }
 
 
@@ -45,66 +44,99 @@ class Map extends Component {
           houses: json
         });
       });
+
   }
+
+
   componentDidUpdate(){
-      console.log("Comm",this.state.community);
-      console.log("Address",this.state.address);
-      console.log("Above",this.state.above_grade);
-      console.log("Below",this.state.below_grade);
-      console.log("Garage",this.state.garage);
+       this.test();
+
+  }
+
+
+  test(){
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmlzaGFiaC1rdW1hcmlhIiwiYSI6ImNqczgwajVkbzBld3AzeXBhejNpN3B6b3EifQ._SD1c7Go3UfxUOgaYb4kYA';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    center:[-114.078270, 51.073425],
+    style: 'mapbox://styles/mapbox/streets-v9', //hosted style id
+    zoom:9
+
+    });
+
+
+  // create the popup
+  var popup = new mapboxgl.Popup({ offset: 25 })
+    .setHTML(`Address : ${this.state.houses[0].address}<br>
+                Total Sq. Footage : ${parseInt(this.state.houses[0].sq_footage.above_grade.slice(0,-2))
+                    +parseInt(this.state.houses[0].sq_footage.below_grade.slice(0,-2))
+                    +parseInt(this.state.houses[0].sq_footage.garage.slice(0,-2))} sq. ft. <br>
+                Ext. Temp : ${this.state.houses[0].history.external_temp.slice(0,-1)} C<br>
+                Int. Temp: ${this.state.houses[0].history.internal_temp.slice(0,-1)} C<br>
+                Heat Loss: ${this.state.houses[0].history.heat_lost} ` );
+
+
+  // create the popup
+  var popup1 = new mapboxgl.Popup({ offset: 25 })
+    .setHTML(`Address : ${this.state.houses[3].address}<br>
+                Total Sq. Footage : ${parseInt(this.state.houses[3].sq_footage.above_grade.slice(0,-2))
+                    +parseInt(this.state.houses[3].sq_footage.below_grade.slice(0,-2))
+                    +parseInt(this.state.houses[3].sq_footage.garage.slice(0,-2))} sq. ft. <br>
+                Ext. Temp : ${this.state.houses[3].history.external_temp.slice(0,-1)} C<br>
+                Int. Temp: ${this.state.houses[3].history.internal_temp.slice(0,-1)} C<br>
+                Heat Loss: ${this.state.houses[3].history.heat_lost} ` );
+
+  // create the popup
+  var popup2 = new mapboxgl.Popup({ offset: 25 })
+    .setHTML(`Address : ${this.state.houses[2].address}<br>
+                Total Sq. Footage : ${parseInt(this.state.houses[3].sq_footage.above_grade.slice(0,-2))
+                    +parseInt(this.state.houses[2].sq_footage.below_grade.slice(0,-2))
+                    +parseInt(this.state.houses[2].sq_footage.garage.slice(0,-2))} sq. ft. <br>
+                Ext. Temp : ${this.state.houses[2].history.external_temp.slice(0,-1)} C<br>
+                Int. Temp: ${this.state.houses[2].history.internal_temp.slice(0,-1)} C<br>
+                Heat Loss: ${this.state.houses[2].history.heat_lost} ` );
+
+
+    // create the popup
+      var popup3 = new mapboxgl.Popup({ offset: 25 })
+      .setHTML(`Address : ${this.state.houses[4].address}<br>
+                  Total Sq. Footage : ${parseInt(this.state.houses[4].sq_footage.above_grade.slice(0,-2))
+                      +parseInt(this.state.houses[4].sq_footage.below_grade.slice(0,-2))
+                      +parseInt(this.state.houses[4].sq_footage.garage.slice(0,-2))} sq. ft. <br>
+                  Ext. Temp : ${this.state.houses[4].history.external_temp.slice(0,-1)} C<br>
+                  Int. Temp: ${this.state.houses[4].history.internal_temp.slice(0,-1)} C<br>
+                  Heat Loss: ${this.state.houses[4].history.heat_lost} ` );
+
+
+
+      // create the marker
+      new mapboxgl.Marker()
+      .setLngLat([-114.131218,51.077889])
+      .setPopup(popup) // sets a popup on this marker
+      .addTo(map);
+
+      // create the marker
+      new mapboxgl.Marker()
+      .setLngLat([-114.141265,51.097946])
+      .setPopup(popup1) // sets a popup on this marker
+      .addTo(map);
+
+       // create the marker
+      new mapboxgl.Marker()
+      .setLngLat([ -113.979272,51.013607])
+      .setPopup(popup2) // sets a popup on this marker
+      .addTo(map);
+
+      // create the marker
+      new mapboxgl.Marker()
+      .setLngLat([ -113.939178,51.126503])
+      .setPopup(popup3) // sets a popup on this marker
+      .addTo(map);
+
 
 
   }
-  handleChange (name,event) {
 
-      this.setState({
-        [name]: event.target.value,
-      });
-
-    };
-  handleOpen(){
-   this.setState({ open: true });
- };
-
- handleClose(){
-   this.setState({ open: false });
- };
- submit(){
-     this.newHouse();
-     this.handleClose();
-
-
- }
-
-  newHouse() {
-    const data = {
-        community:this.state.community,
-        address:this.state.address,
-        above_grade:this.state.above_grade,
-        below_grade:this.state.below_grade,
-        garage:this.state.garage,
-        external_temp:"N/A",
-        internal_temp:"N/A",
-        runtime_percentage:"N/A"
-    }
-    fetch(`/api/house-create`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            // "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body:JSON.stringify(data),
-      })
-      .then(res => res.json())
-      .then(json => {
-        let data = this.state.houses;
-        data.push(json);
-        console.log("House Returned!",json);
-        this.setState({
-          houses: data
-        });
-      });
-  };
   render() {
       const styles = theme => ({
       root: {
@@ -120,9 +152,7 @@ class Map extends Component {
     return (
       <div className="container-list">
 
-      <div className="header-list"><div><h1>Calgary Map</h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
-         <Icon>add</Icon>
-         </Fab>
+      <div className="header-list"><div><h1>Calgary Map</h1>
       </div>
         <div>
             <Link to="/" style={{textDecoration:'none'}}><Button color='secondary'>Table</Button></Link>
@@ -131,92 +161,9 @@ class Map extends Component {
         </div>
       </div>
       <Paper className={styles.root}>
-      <Table className={styles.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Community</TableCell>
-            <TableCell >Address</TableCell>
-            <TableCell > </TableCell>
-
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {this.state.houses.map(row => (
-            <TableRow key={row._id}>
-              <TableCell component="th" scope="row">
-                {row.community}
-              </TableCell>
-              <TableCell >{row.address}</TableCell>
-              <TableCell align="right"> <Button variant="outlined" color="secondary" className="more-button">More</Button></TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <div id="map" style={{width: '100%', height:'500px'}}>
+      </div>
     </Paper>
-
-    <Modal
-       aria-labelledby="simple-modal-title"
-       aria-describedby="simple-modal-description"
-       open={this.state.open}
-       onClose={this.handleClose.bind(this)}
-     >
-         <Paper className="modal-container">
-         <form noValidate autoComplete="off" className="modal-text-container">
-            <h2>Add a new house</h2>
-             <TextField
-
-               className="text-field-modal"
-               id="outlined-name"
-               label="Community"
-               // className={classes.textField}
-               // value={this.state.name}
-               onChange={this.handleChange.bind(this,'community')}
-               margin="normal"
-             />
-             <TextField
-
-               id="outlined-name"
-               className="text-field-modal"
-               label="Address"
-               // className={classes.textField}
-               // value={this.state.name}
-               onChange={this.handleChange.bind(this,'address')}
-               margin="normal"
-             />
-             <TextField
-
-               id="outlined-name"
-               className="text-field-modal"
-               label="Above-Grade"
-               // className={classes.textField}
-               // value={this.state.name}
-               onChange={this.handleChange.bind(this,'above_grade')}
-               margin="normal"
-             />
-             <TextField
-
-               id="outlined-name"
-               className="text-field-modal"
-               label="Below-Grade"
-               // className={classes.textField}
-               // value={this.state.name}
-               onChange={this.handleChange.bind(this,'below_grade')}
-               margin="normal"
-             />
-             <TextField
-
-               id="outlined-name"
-               className="text-field-modal"
-               label="Garage"
-               // className={classes.textField}
-               // value={this.state.name}
-               onChange={this.handleChange.bind(this,'garage')}
-               margin="normal"
-             />
-             <Button variant="contained" color="primary" className="modal-submit-button" onClick={this.submit.bind(this)}>Add</Button>
-        </form>
-         </Paper>
-     </Modal>
 
       </div>
     );
