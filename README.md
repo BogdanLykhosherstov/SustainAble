@@ -1,14 +1,16 @@
 # App: SustainAble
 
+- 
 
 
 
 ## Groupname: SustainAble
-# members:
+# Members:
 - Bogdan Lykhosherstov
 - Dan Dunareanu
 - Muhannad Nouri
 - Jappanjot Arora
+- Rishab Kumaria
 
 
 
