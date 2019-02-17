@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 
 
 import MainPage from '../App/MainPage';
+import WelcomePage from './WelcomePage';
 
 
 
@@ -12,7 +13,8 @@ const App = ({ children }) => (
   <>
 
     <main>
-      <MainPage/>
+      {/*<WelcomePage/>*/}
+      {children}
     </main>
 
   </>
