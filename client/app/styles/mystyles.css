@@ -107,3 +107,10 @@ body{
     background-color: white;
     font-family: 'Roboto',sans-serif;
 }
+.more-container{
+
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}

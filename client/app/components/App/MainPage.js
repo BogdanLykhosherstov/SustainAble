@@ -106,6 +106,10 @@ class MainPage extends Component {
       });
   };
   render() {
+      for (var element in this.state.houses){
+          console.log(this.state.houses[element]._id);
+
+      }
       const styles = theme => ({
       root: {
         width: '90%',
@@ -116,18 +120,18 @@ class MainPage extends Component {
         minWidth: 700,
       },
     });
+    var id=0;
      // Code Goes HEre:
     return (
       <div className="container-list">
 
-      <div className="header-list"><div><h1>Calgary <span style={{color:'#f50057'}}>Houses1</span></h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
+      <div className="header-list"><div><h1>Calgary <span style={{color:'#f50057'}}>Houses</span></h1> <Fab className="fab-button" color="secondary" size="small" aria-label="Add" onClick={this.handleOpen.bind(this)}>
          <Icon>add</Icon>
          </Fab>
       </div>
         <div>
             <Link to="/map" style={{textDecoration:'none'}}><Button color='secondary'>Map</Button></Link>
             <Button color='secondary'>Analytics</Button>
-
         </div>
       </div>
       <Paper className={styles.root}>
@@ -135,8 +139,8 @@ class MainPage extends Component {
         <TableHead>
           <TableRow>
             <TableCell>Community</TableCell>
-            <TableCell >Address</TableCell>
-            <TableCell > </TableCell>
+            <TableCell>Address</TableCell>
+            <TableCell></TableCell>
 
           </TableRow>
         </TableHead>
@@ -147,7 +151,7 @@ class MainPage extends Component {
                 {row.community}
               </TableCell>
               <TableCell >{row.address}</TableCell>
-            <TableCell align="right">  <Button variant="outlined" color="secondary" className="more-button">More</Button></TableCell>
+            <TableCell align="right"> <Link to={`/main/:id=${row._id}`}> <Button variant="outlined" color="secondary" className="more-button">More</Button></Link></TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -159,7 +163,7 @@ class MainPage extends Component {
        aria-describedby="simple-modal-description"
        open={this.state.open}
        onClose={this.handleClose.bind(this)}
-     >
+       >
          <Paper className="modal-container">
          <form noValidate autoComplete="off" className="modal-text-container">
             <h2>New House</h2>
@@ -216,7 +220,7 @@ class MainPage extends Component {
              <Button variant="contained" color="primary" className="modal-submit-button" onClick={this.submit.bind(this)}>Add</Button>
         </form>
          </Paper>
-     </Modal>
+         </Modal>
 
       </div>
     );

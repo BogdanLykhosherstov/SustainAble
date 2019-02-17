@@ -14,6 +14,7 @@ import NotFound from './components/App/NotFound';
 import Home from './components/Home/Home';
 import MainPage from './components/App/MainPage';
 import More from './components/App/More';
+import Analytics from './components/App/Analytics';
 
 import Map from './components/App/Map';
 import WelcomePage from './components/App/WelcomePage';
@@ -26,9 +27,10 @@ render((
     <App>
       <Switch>
         <Route exact path="/" component={WelcomePage}/>
-        <Route path= "/main" component={MainPage}/>
-        <Route path= "/main" component={MainPage}/>
-        <Route path= "/main:id" component={More}/>
+        <Route exact path= "/main/:id" component={More}/>
+        <Route  path= "/main" component={MainPage}/>
+        <Route  path= "/analytics" component={Analytics}/>
+
         <Route path="/map" component={Map}/>
         <Route component={NotFound}/>
       </Switch>
