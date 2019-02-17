@@ -2,7 +2,11 @@
 - CalgaryHacks 2019 Submission
 
 ## Description
-- Placeholder
+- Aggregates information from individual thermostats and collects live data
+- Provides a single easy to use interface for installers to add and manage new properties/communities
+- Provides a map overview of the city with pins representing home efficiency being monitored
+- Provides graph overview of collective data for community wide as well as city wide analysis
+- This application intends to help municipal governments prioritize redevelopment of inefficient communities
 
 ## Group 
 - SustainAble
